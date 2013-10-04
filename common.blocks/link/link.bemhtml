@@ -1,0 +1,20 @@
+block link {
+
+    tag: 'a'
+
+    attrs: {
+
+        var attrs = {};
+        var props = ['title', 'target'];
+
+        while (prop = props.shift()) {
+
+            if (this.ctx.hasOwnProperty(prop)) {
+                attrs[prop] = this.ctx[prop]
+            }
+        }
+        attrs.href = this.ctx.url || '';
+
+        return attrs;
+    }
+}

@@ -1,0 +1,32 @@
+block logo {
+
+    elem link, default: {
+        var ctx = this.ctx;
+
+        if (this._.isArray(ctx.content)) {
+
+            for (var item in ctx.content) {
+
+                if (ctx.content[item].elem) {
+                    ctx.content[item].block = 'logo';
+                }
+            }
+        }
+
+        ctx.block = 'link';
+        ctx.elem  = undefined;
+        ctx.mix   = [ { block: 'logo', elem: 'link' } ];
+
+        applyCtx(ctx);
+    }
+
+    elem icon, default: {
+        var ctx = this.ctx;
+
+        ctx.block = 'icon';
+        ctx.elem  = undefined;
+        ctx.mix   = [ { block: 'logo', elem: 'icon' } ];
+
+        applyCtx(ctx);
+    }
+}

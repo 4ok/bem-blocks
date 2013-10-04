@@ -1,0 +1,9 @@
+.menu-vertical__col
+{
+    float: left;
+    margin-left: 10px;
+}
+
+.menu-vertical__col:first-child {
+    margin-left: 0;
+}
