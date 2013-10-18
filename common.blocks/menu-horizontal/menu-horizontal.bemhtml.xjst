@@ -1,0 +1,19 @@
+block('menu-horizontal')
+(
+    elem('item')
+    (
+        tag()('a'),
+
+        attrs()
+        ({
+            href: this.ctx.url
+        }),
+
+        elemMod('current', true)
+        (
+            tag()('span'),
+
+            attrs()(undefined)
+        )
+    )
+)
