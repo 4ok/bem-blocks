@@ -1,0 +1,30 @@
+block('fotorama')
+(
+    match(this.ctx.options)
+    (
+        attrs()
+        (
+            function()
+            {
+                var attrs   = {};
+                var options = this.ctx.options;
+
+                for (var i in options) {
+                    attrs['data-' + i] = options[i];
+                }
+
+                return attrs;
+            }
+        )
+    ),
+
+    elem('img')
+    (
+        tag()('img'),
+
+        attrs()
+        ({
+            src: this.ctx.url
+        })
+    )
+)

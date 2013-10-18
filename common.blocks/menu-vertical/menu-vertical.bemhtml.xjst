@@ -1,4 +1,4 @@
-block('menu-horizontal')
+block('menu-vertical')
 (
     elem('item')
     (
@@ -11,7 +11,7 @@ block('menu-horizontal')
 
         elemMod('current', true)
         (
-            tag()('span'),
+            tag()('div'),
 
             attrs()(undefined)
         )
