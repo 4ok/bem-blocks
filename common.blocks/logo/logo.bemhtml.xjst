@@ -19,7 +19,9 @@ block('logo')
                 }
                 ctx.block = 'link';
                 ctx.elem  = undefined;
-                ctx.mix   = [ { block: 'logo', elem: 'link' } ];
+                ctx.mix   = [
+                    { block: this.block, elem: 'link' }
+                ];
 
                 applyCtx(ctx);
             }
@@ -36,7 +38,9 @@ block('logo')
 
                 ctx.block = 'icon';
                 ctx.elem  = undefined;
-                ctx.mix   = [ { block: 'logo', elem: 'icon' } ];
+                ctx.mix   = [
+                    { block: this.block, elem: 'icon' }
+                ];
 
                 applyCtx(ctx);
             }

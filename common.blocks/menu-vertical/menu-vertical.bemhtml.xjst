@@ -2,18 +2,23 @@ block('menu-vertical')
 (
     elem('item')
     (
-        tag()('a'),
-
-        attrs()
-        ({
-            href: this.ctx.url
-        }),
-
-        elemMod('current', true)
+        match(!this.elemMods.hasOwnProperty('current'))
         (
-            tag()('div'),
+            def()
+            (
+                function()
+                {
+                    var ctx = this.ctx;
 
-            attrs()(undefined)
+                    ctx.block = 'link';
+                    ctx.elem  = undefined;
+                    ctx.mix   = [
+                        { block: this.block, elem: 'item' }
+                    ];
+
+                    applyCtx(ctx);
+                }
+            )
         )
     )
 )

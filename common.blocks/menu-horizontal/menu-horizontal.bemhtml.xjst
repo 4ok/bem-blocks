@@ -2,18 +2,28 @@ block('menu-horizontal')
 (
     elem('item')
     (
-        tag()('a'),
-
-        attrs()
-        ({
-            href: this.ctx.url
-        }),
-
         elemMod('current', true)
         (
-            tag()('span'),
+            tag()('span')
+        ),
 
-            attrs()(undefined)
+        match(!this.elemMods.hasOwnProperty('current'))
+        (
+            def()
+            (
+                function()
+                {
+                    var ctx = this.ctx;
+
+                    ctx.block = 'link';
+                    ctx.elem  = undefined;
+                    ctx.mix   = [
+                        { block: this.block, elem: 'item' }
+                    ];
+
+                    applyCtx(ctx);
+                }
+            )
         )
     )
 )

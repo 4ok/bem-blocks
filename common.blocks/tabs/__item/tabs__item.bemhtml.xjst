@@ -1,0 +1,12 @@
+block('tabs')
+(
+    elem('item')
+    (
+        tag()('a'),
+
+        attrs()
+        ({
+            href: '#'
+        })
+    )
+)

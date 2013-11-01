@@ -5,7 +5,7 @@ block('icon')
         tag()('img'),
 
         attrs()
-         (
+        (
             function()
             {
                 var attrs = {};
