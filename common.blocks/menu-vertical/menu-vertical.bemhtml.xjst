@@ -9,11 +9,23 @@ block('menu-vertical')
                 function()
                 {
                     var ctx = this.ctx;
+                    var mix = {
+                        block:    this.block,
+                        elem:     'item',
+                        elemMods: this.elemMods
+                    };
 
-                    ctx.block = 'link';
-                    ctx.elem  = undefined;
-                    ctx.mix   = [
-                        { block: this.block, elem: 'item' }
+                    ctx.block    = 'link';
+                    ctx.elem     = undefined;
+                    ctx.elemMods = undefined;
+
+                    if (ctx.hasOwnProperty('js')) {
+                        mix.js = this.ctx.js;
+                        ctx.js = undefined;
+                    }
+
+                    ctx.mix = [
+                        mix
                     ];
 
                     applyCtx(ctx);
@@ -21,4 +33,4 @@ block('menu-vertical')
             )
         )
     )
-)
+);

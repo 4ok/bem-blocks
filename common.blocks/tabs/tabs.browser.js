@@ -1,4 +1,3 @@
-console.log('fff');
 modules.define('i-bem__dom', ['jquery'], function(provide, $, DOM) {
 
     DOM.decl('tabs', {}, {
