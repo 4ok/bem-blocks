@@ -2,20 +2,15 @@ modules.define('i-bem__dom', function(provide, DOM) {
 
     DOM.decl('slides', {
 
-        onElemSetMod: {
+        showSlide: function(mod, val)
+        {
+            var $elem     = this.elem('item', mod, val);
+            var $prevElem = this.elem('item', 'current', true);
 
-            item: {
-
-                current: {
-
-                    true: function()
-                    {
-                        var $prevElem = this.elem('item', 'current', true);
-
-                        this.delMod($prevElem, 'current');
-                    }
-                }
+            if ($prevElem.length) {
+                this.delMod($prevElem, 'current');
             }
+            this.setMod($elem, 'current', true);
         }
     });
 
