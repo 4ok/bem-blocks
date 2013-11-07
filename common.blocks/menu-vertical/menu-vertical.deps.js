@@ -1,3 +1,6 @@
 ({
-    mustDeps: { block: 'menu' }
+    mustDeps: [
+        { block: 'menu' },
+        { block: 'link' }
+    ]
 })
