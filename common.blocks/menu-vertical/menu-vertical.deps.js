@@ -1,6 +1,6 @@
 ({
     mustDeps: [
-        { block: 'menu' }, // Js base block
-        { block: 'link' }  // Bemhtml.xjst
+        { block: 'menu' }, // js base block
+        { block: 'link' }  // bemhtml.xjst
     ]
 });
