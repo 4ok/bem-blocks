@@ -1,7 +1,6 @@
 ({
     mustDeps: [
-        { block : 'i-bem', elem : 'dom' },
-        { block: 'menu' },
-        { block: 'link' }
+        { block: 'menu' }, // Js base block
+        { block: 'link' }  // Bemhtml.xjst
     ]
 });
