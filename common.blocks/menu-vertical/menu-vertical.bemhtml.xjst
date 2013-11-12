@@ -9,15 +9,26 @@ block('menu-vertical')
 
     elem('col')
     (
+        tag()('li'),
+
+        content()
+        ({
+            elem:    'col-items',
+            content: this.ctx.content
+        })
+    ),
+
+    elem('col-items')
+    (
         tag()('ul')
     ),
 
-    elem('item-wrapper')
+    elem('item')
     (
         tag()('li')
     ),
 
-    elem('item')
+    elem('item-link')
     (
         tag()('a')
     )

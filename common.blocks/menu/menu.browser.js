@@ -7,7 +7,7 @@ modules.define(
     {
         live: function() {
 
-            this.liveBindTo('item', 'mouseover mouseout', function(e)
+            this.liveBindTo('item-link', 'mouseover mouseout', function(e)
             {
                 var $elem = $(e.currentTarget);//console.log('aaa');
 
