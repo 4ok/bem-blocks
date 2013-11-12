@@ -1,4 +1,21 @@
 .menu-level
 {
+    display: none;
+
+    background: #ccc;
+    border: 1px solid #eee;
+
+    position: absolute;
+}
+
+.menu-level:hover
+{
+    display: block;
+}
+
+.menu-level .menu-level__item
+{
     /*display: none;*/
+
+    border: 1px solid red;
 }

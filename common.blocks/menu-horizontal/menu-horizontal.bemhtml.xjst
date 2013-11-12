@@ -18,7 +18,10 @@ block('menu-horizontal')
                     ctx.block = 'link';
                     ctx.elem  = undefined;
                     ctx.mix   = [
-                        { block: this.block, elem: 'item' }
+                        {
+                            block: this.block,
+                            elem: 'item'
+                        }
                     ];
 
                     applyCtx(ctx);

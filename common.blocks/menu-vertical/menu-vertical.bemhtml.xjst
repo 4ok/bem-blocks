@@ -1,36 +1,24 @@
 block('menu-vertical')
 (
+    tag()('ul'),
+
+    elem('col-wrapper')
+    (
+        tag()('li')
+    ),
+
+    elem('col')
+    (
+        tag()('ul')
+    ),
+
+    elem('item-wrapper')
+    (
+        tag()('li')
+    ),
+
     elem('item')
     (
-        match(!this.elemMods.hasOwnProperty('current'))
-        (
-            def()
-            (
-                function()
-                {
-                    var ctx = this.ctx;
-                    var mix = {
-                        block:    this.block,
-                        elem:     'item',
-                        elemMods: this.elemMods
-                    };
-
-                    ctx.block    = 'link';
-                    ctx.elem     = undefined;
-                    ctx.elemMods = undefined;
-
-                    if (ctx.hasOwnProperty('js')) {
-                        mix.js = this.ctx.js;
-                        ctx.js = undefined;
-                    }
-
-                    ctx.mix = [
-                        mix
-                    ];
-
-                    applyCtx(ctx);
-                }
-            )
-        )
+        tag()('a')
     )
 );
