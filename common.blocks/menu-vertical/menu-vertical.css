@@ -1,0 +1,23 @@
+.menu-vertical
+{
+    display: block;
+
+    list-style-type: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.menu-vertical ul,
+.menu-vertical li
+{
+    display: block;
+
+    padding: 0;
+    margin: 0;
+}
+
+.menu-vertical ul
+{
+    list-style-type: none;
+}
