@@ -1,4 +1,0 @@
-block('menu-level')
-(
-    js()(true)
-);

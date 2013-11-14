@@ -3,7 +3,7 @@ modules.define(
     ['jquery'],
     function(provide, $, DOM)
 {
-    DOM.decl({ block : 'menu-level', baseBlock : 'menu'});
+    DOM.decl({ block : 'submenu', baseBlock : 'menu' });
 
     provide(DOM);
 });

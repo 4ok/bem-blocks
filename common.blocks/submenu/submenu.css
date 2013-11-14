@@ -1,0 +1,23 @@
+.submenu
+{
+    display: block;
+
+    list-style-type: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.submenu ul,
+.submenu li
+{
+    display: block;
+
+    padding: 0;
+    margin: 0;
+}
+
+.submenu ul
+{
+    list-style-type: none;
+}
