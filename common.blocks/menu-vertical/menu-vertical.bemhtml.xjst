@@ -28,8 +28,13 @@ block('menu-vertical')
         tag()('li')
     ),
 
-    elem('item-link')
+    elem('submenu')
     (
-        tag()('a')
+        tag()('ul')
+    ),
+
+    elem('submenu-item')
+    (
+        tag()('li')
     )
 );

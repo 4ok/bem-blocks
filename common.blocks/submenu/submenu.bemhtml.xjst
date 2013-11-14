@@ -1,9 +1,0 @@
-block('submenu')
-(
-    tag()('ul'),
-
-    elem('item')
-    (
-        tag()('li')
-    )
-);
