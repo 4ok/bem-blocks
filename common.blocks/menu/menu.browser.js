@@ -1,7 +1,7 @@
 modules.define(
     'i-bem__dom',
-    ['jquery', 'BEMHTML'],
-    function(provide, $, BEMHTML, DOM)
+    ['jquery'],
+    function(provide, $, DOM)
 {
     DOM.decl('menu',
     {
@@ -13,7 +13,7 @@ modules.define(
     {
         live: function()
         {
-            this.liveBindTo('item-link', 'mouseover', function(e)
+            this.liveBindTo('item item-link', 'mouseover', function(e)
             {
                 this.setMod(
                     this._getElemByEvent(e),
@@ -21,7 +21,7 @@ modules.define(
                 );
             });
 
-            this.liveBindTo('item-link', 'mouseout', function(e)
+            this.liveBindTo('item item-link', 'mouseout', function(e)
             {
                 this.delMod(
                     this._getElemByEvent(e),

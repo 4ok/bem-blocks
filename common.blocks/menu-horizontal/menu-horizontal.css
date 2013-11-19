@@ -1,0 +1,28 @@
+.menu-horizontal
+{
+    float: left;
+
+    display: block;
+    padding: 0;
+    margin: 0;
+
+    list-style-type: none;
+}
+
+.menu-horizontal ul,
+.menu-horizontal li
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-horizontal ul
+{
+    list-style-type: none;
+}
+
+.menu-horizontal li
+{
+    float: left;
+}
