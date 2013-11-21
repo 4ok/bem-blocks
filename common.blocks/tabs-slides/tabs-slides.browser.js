@@ -2,6 +2,8 @@ modules.define('i-bem__dom', function(provide, DOM) {
 
     DOM.decl('tabs-slides', {
 
+        _hasCurrentSlide: true,
+
         onSetMod: {
 
             js: {
@@ -31,6 +33,9 @@ modules.define('i-bem__dom', function(provide, DOM) {
 
         _setCurrentSlide: function(modName, modVal)
         {
+            if (!this._hasCurrentSlide) {
+                this.emit('set_current_slide_after_remove');
+            }
             var $slidesBlock = this._getSlidesBlock();
 
             var $elem        = $slidesBlock.elem('item', modName, modVal);
@@ -53,6 +58,8 @@ modules.define('i-bem__dom', function(provide, DOM) {
 
             if ($currentElem.length) {
                 $slidesBlock.delMod($currentElem, 'current');
+                this.emit('remove_current_slide');
+                this._hasCurrentSlide = false;
             }
         },
 
