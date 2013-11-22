@@ -27,4 +27,4 @@ block('fotorama')
             src: this.ctx.url
         })
     )
-)
+);
