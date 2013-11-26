@@ -1,40 +1,4 @@
 block('menu-vertical')
 (
-    tag()('ul'),
-
-    elem('col-wrapper')
-    (
-        tag()('li')
-    ),
-
-    elem('col')
-    (
-        tag()('li'),
-
-        content()
-        ({
-            elem:    'col-items',
-            content: this.ctx.content
-        })
-    ),
-
-    elem('col-items')
-    (
-        tag()('ul')
-    ),
-
-    elem('item')
-    (
-        tag()('li')
-    ),
-
-    elem('submenu')
-    (
-        tag()('ul')
-    ),
-
-    elem('submenu-item')
-    (
-        tag()('li')
-    )
+    tag()('ul')
 );

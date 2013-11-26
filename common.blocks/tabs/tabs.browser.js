@@ -1,10 +1,14 @@
-modules.define('i-bem__dom', ['jquery'], function(provide, $, DOM) {
-
-    DOM.decl('tabs', {}, {
-
-        live: function() {
-
-            this.liveBindTo('item', 'click', function(e) {
+modules.define(
+    'i-bem__dom',
+    ['jquery'],
+    function(provide, $, DOM)
+{
+    DOM.decl('tabs', {},
+    {
+        live: function()
+        {
+            this.liveBindTo('item', 'click', function(e)
+            {
                 var $elem  = $(e.currentTarget);
 
                 if (!this.hasMod($elem, 'current', true)) {

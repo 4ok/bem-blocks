@@ -1,9 +1,4 @@
 block('menu-horizontal')
 (
-    tag()('ul'),
-
-    elem('item')
-    (
-        tag()('li')
-    )
+    tag()('ul')
 );

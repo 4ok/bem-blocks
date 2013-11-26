@@ -1,5 +1,7 @@
-modules.define('i-bem__dom', ['jquery'], function(provide, $, DOM) {
-
+modules.define(
+    'i-bem__dom',
+    function(provide, DOM)
+{
     DOM.decl({ block : 'menu-horizontal', baseBlock : 'menu' });
 
     provide(DOM);

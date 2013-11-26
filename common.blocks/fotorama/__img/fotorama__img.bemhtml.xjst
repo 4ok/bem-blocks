@@ -1,0 +1,9 @@
+block('fotorama').elem('img')
+(
+    tag()('img'),
+
+    attrs()
+    ({
+        src: this.ctx.url
+    })
+);

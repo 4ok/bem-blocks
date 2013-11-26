@@ -3,4 +3,4 @@
         { block: 'link' },
         { block: 'icon' }
     ]
-})
+});

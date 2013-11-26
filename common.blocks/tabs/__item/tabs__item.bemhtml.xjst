@@ -1,12 +1,9 @@
-block('tabs')
+block('tabs').elem('item')
 (
-    elem('item')
-    (
-        tag()('a'),
+    tag()('a'),
 
-        attrs()
-        ({
-            href: '#'
-        })
-    )
-)
+    attrs()
+    ({
+        href: '#'
+    })
+);
