@@ -3,20 +3,14 @@ modules.define(
     ['jquery'],
     function(provide, $, DOM)
 {
-    DOM.decl('menu',
-    {
-        _getElemByEvent: function(e)
-        {
-            return $(e.currentTarget);
-        }
-    },
+    DOM.decl({ block: 'menu' }, {},
     {
         live: function()
         {
             this.liveBindTo('item item-link', 'mouseover', function(e)
             {
                 this.setMod(
-                    this._getElemByEvent(e),
+                    this.getElemByEvent(e),
                     'hover', true
                 );
             });
@@ -24,7 +18,7 @@ modules.define(
             this.liveBindTo('item item-link', 'mouseout', function(e)
             {
                 this.delMod(
-                    this._getElemByEvent(e),
+                    this.getElemByEvent(e),
                     'hover'
                 );
             });
