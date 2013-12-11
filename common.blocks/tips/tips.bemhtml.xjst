@@ -1,0 +1,9 @@
+block('tips')
+(
+    js()(true),
+
+    match(this.ctx.options)
+    (
+        js()(this.ctx.options)
+    )
+);

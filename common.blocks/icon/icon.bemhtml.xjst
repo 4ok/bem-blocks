@@ -9,7 +9,7 @@ block('icon')
             function()
             {
                 var attrs = {};
-                var props = ['width', 'height', 'alt'];
+                var props = ['alt', 'title'];
 
                 while (prop = props.shift()) {
 
