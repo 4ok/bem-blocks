@@ -5,6 +5,8 @@ modules.define(
 {
     DOM.decl('tips',
     {
+        defaultParams: {},
+
         onSetMod: {
 
             js: {
@@ -18,9 +20,8 @@ modules.define(
 
         _initImg: function()
         {
-            var $img        = this.elem('img');
-            var _this       = this;
-            var blockParams = this.params;
+            var $img = this.elem('img');
+            var _this = this;
 
             if ($img.length) {
 
@@ -29,13 +30,11 @@ modules.define(
                     var elemParams = _this.elemParams($this);
                     var tipParams  = {
                         content: {
-                            text: '<img src="' + elemParams.url + '"/>'
+                            text: '<img class="tips__content-image" src="' + elemParams.url + '"/>'
                         }
                     };
+                    tipParams = $.extend(tipParams, _this.defaultParams);
 
-                    if (!$.isEmptyObject(blockParams)) {
-                        tipParams = $.extend(tipParams, blockParams);
-                    }
                     $this.qtip(tipParams);
                 });
             }
