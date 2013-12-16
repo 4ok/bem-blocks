@@ -1,7 +1,5 @@
-block('tips')
+block('tooltips').elem('img')
 (
-    js()(true),
-
     match(this.ctx.options)
     (
         js()(this.ctx.options)

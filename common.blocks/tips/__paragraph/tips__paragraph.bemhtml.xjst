@@ -1,4 +1,0 @@
-block('tips').elem('paragraph')
-(
-    tag()('p')
-);
