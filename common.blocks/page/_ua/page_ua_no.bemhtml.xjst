@@ -1,0 +1,10 @@
+block('page')
+(
+    mode('head')(this.ctx.head),
+
+    elem('root')
+    (
+        cls()(false)
+    )
+
+);
