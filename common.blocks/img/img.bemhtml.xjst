@@ -9,7 +9,7 @@ block('img')
             function()
             {
                 var attrs = {};
-                var props = ['alt', 'title'];
+                var props = ['alt', 'title', 'width', 'height'];
 
                 while (prop = props.shift()) {
 

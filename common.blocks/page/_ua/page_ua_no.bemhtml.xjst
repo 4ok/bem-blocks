@@ -1,10 +1,11 @@
+block('ua')(false);
+
 block('page')
 (
-    mode('head')(this.ctx.head),
+    function ()
+    {
+        this.ctx.cls = false;
 
-    elem('root')
-    (
-        cls()(false)
-    )
-
+        return applyNext();
+    }
 );
