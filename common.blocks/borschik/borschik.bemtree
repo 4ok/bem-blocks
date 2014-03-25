@@ -1,27 +1,28 @@
 match('' === this._mode, !this.borschik)
 (
-    function () {
-        var borschik = {};
-        var links    = {};
+    function ()
+    {
+        var _borschik = {};
+        var _links    = {};
 
-        borschik.addLinks = function (links) {
+        _borschik.addLinks = function (links) {
 
-            for (var link in links) {
-                links[link] = links[link];
+            for (var i in links) {
+                _links[i] = links[i];
             }
         };
 
-        borschik.link = function (link) {
+        _borschik.link = function (link) {
 
             if (link.charAt(0) === '@') {
-                return links[link.substr(1)];
+                return _links[link.substr(1)];
             }
 
             return link;
         };
 
-        this.borschik = borschik;
+        this.borschik = _borschik;
 
         return applyNext();
     }
-)
+);
