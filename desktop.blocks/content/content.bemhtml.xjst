@@ -1,7 +1,0 @@
-block('content')
-(
-    elemMatch()
-    (
-    	tag()(this.ctx.elem)
-    )
-);
