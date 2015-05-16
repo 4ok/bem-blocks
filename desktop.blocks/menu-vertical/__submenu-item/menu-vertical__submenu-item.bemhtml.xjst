@@ -1,4 +1,0 @@
-block('menu-vertical').elem('submenu-item')
-(
-    tag()('li')
-);

@@ -1,0 +1,9 @@
+match(this._mode === '')
+(
+    function()
+    {
+        this.data = this.ctx.data || {};
+
+        return applyNext();
+    }
+);

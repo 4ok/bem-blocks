@@ -1,4 +1,0 @@
-block('menu-vertical').elem('item')
-(
-    tag()('li')
-);

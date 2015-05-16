@@ -1,0 +1,34 @@
+block('content').elem('image')
+(
+    def()(function() {
+        var ctx  = this.ctx;
+        var mods = ctx.mods;
+        var mix  = {
+            block: this.block,
+            elem:  this.elem
+        };
+
+        if (mods) {
+            mix.mods = mods;
+
+            delete ctx.mods;
+        }
+
+        delete ctx.elem;
+
+        ctx.block = 'image';
+        ctx.mix   = mix;
+
+        if (mods && 'right' == mods.align) {
+            ctx = {
+                elem : 'wrapper',
+                mods : {
+                    'text-align': 'right'
+                },
+                content : ctx
+            }
+        }
+
+        return applyCtx(ctx);
+    })
+);

@@ -1,4 +1,0 @@
-block('descriptions').elem('termin')
-(
-    tag()('dt')
-);

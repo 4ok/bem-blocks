@@ -1,9 +1,0 @@
-block('article')
-(
-    tag()('article'),
-
-    elemMatch()
-    (
-        tag()(this.ctx.elem)
-    )
-);

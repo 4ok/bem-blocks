@@ -1,0 +1,17 @@
+font-path($file)
+    return $file
+
+font-face($family, $file, $weight = normal, $style = normal)
+    @font-face
+        font-family: $family
+        src: url(font-path($file + '.eot'))
+        src: url(font-path($file + '.eot?#iefix')) format('embedded-opentype'),
+             url(font-path($file + '.woff')) format('woff'),
+             url(font-path($file + '.ttf')) format('truetype'),
+             url(font-path($file + '.svg#'+ $family)) format('svg')
+        font-weight: $weight
+        font-style: $style
+
+font($family)
+    font-family: $family + ', Arial, Helvetica, sans-serif' // @todo
+

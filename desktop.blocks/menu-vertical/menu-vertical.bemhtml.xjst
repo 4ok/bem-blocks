@@ -1,4 +1,0 @@
-block('menu-vertical')
-(
-    tag()('ul')
-);

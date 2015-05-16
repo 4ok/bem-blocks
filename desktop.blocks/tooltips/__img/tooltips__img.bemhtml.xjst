@@ -1,7 +1,0 @@
-block('tooltips').elem('img')
-(
-    match(this.ctx.options)
-    (
-        js()(this.ctx.options)
-    )
-);

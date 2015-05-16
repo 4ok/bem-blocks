@@ -1,4 +1,0 @@
-block('tabs-slides')
-(
-    js()(true)
-);
