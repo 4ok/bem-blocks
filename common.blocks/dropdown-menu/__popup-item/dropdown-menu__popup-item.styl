@@ -1,0 +1,23 @@
+.dropdown-menu
+
+    &__popup-item
+        display block
+        padding 5px 10px
+        color #fff
+
+        &.link
+            text-decoration none
+
+        &:hover
+            background green
+
+        &_state
+
+            &_active
+                background red
+
+                &:not(.dropdown):hover
+                    background red
+
+            &_active-child
+                background darkred

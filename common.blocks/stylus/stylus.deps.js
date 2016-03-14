@@ -1,7 +1,10 @@
 ({
     shouldDeps : [
         {
-            elems : ['mixins', 'vars']
+            elems : [
+                'mixins',
+                'vars'
+            ]
         }
     ]
 });

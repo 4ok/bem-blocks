@@ -13,19 +13,16 @@ modules.define(
                 }
             },
 
-            _onPointerOver : function()
-            {
+            _onPointerOver : function() {
                 this.setMod('hovered');
             },
 
-            _onPointerLeave : function(e)
-            {
+            _onPointerLeave : function() {
                 this.delMod('hovered');
             }
         },
         {
-            live : function()
-            {
+            live : function() {
                 this.liveBindTo('pointerover', this.prototype._onPointerOver)
             }
         }));
