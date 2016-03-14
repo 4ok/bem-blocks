@@ -1,6 +1,6 @@
 block('dropdown-menu')
 (
-    def()(function () {
+    replace()(function () {
         const gate = this.helper('gate');
         const url  = this.helper('url');
 
