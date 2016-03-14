@@ -1,0 +1,14 @@
+{
+  "name": "bem-blocks",
+  "version": "0.0.0",
+  "authors": [
+    "4ok"
+  ],
+  "description": "BEM blocks",
+  "keywords": [
+    "bem",
+    "blocks"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/4ok/bem-blocks"
+}
