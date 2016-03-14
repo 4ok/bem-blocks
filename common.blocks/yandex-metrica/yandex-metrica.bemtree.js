@@ -1,6 +1,6 @@
 block('yandex-metrica')
 (
-    def()(function () {
+    replace()(function () {
         const ctx = this.ctx;
 
         const defaultParams = {
@@ -19,6 +19,6 @@ block('yandex-metrica')
 
         delete ctx.id;
 
-        return applyCtx(ctx);
+        return ctx;
     })
 );
