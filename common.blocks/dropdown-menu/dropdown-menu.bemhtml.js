@@ -1,15 +1,5 @@
 block('dropdown-menu')
 (
-    tag()('nav'),
-
-    attrs()({
-        role : 'navigation'
-    }),
-
-    mix()({
-        block : 'grid'
-    }),
-
     replace()(function () {
         const ctx = this.ctx;
 

@@ -1,21 +1,11 @@
 block('dropdown-menu')
 (
-    replace()(function () {
-        const gate = this.helper('gate');
+    def()(function () {
         const url  = this.helper('url');
+        const ctx  = this.ctx;
+        const menu = this.data['dropdown-menu'][ctx.name];
 
-        let ctx = this.ctx;
-
-        gate.callMethod('base:menu/tree', { // TODO
-            filter : {
-                name : ctx.name
-            },
-            sort : ctx.sort || {
-                sort : 1
-            }
-        }, function (menu) {
-            ctx.menu = url.getMenu(menu);
-        });
+        ctx.menu = url.getMenu(menu);
 
         return ctx;
     })
