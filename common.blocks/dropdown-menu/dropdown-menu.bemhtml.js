@@ -35,16 +35,16 @@ block('dropdown-menu')(
             if (level == 1) {
                 dropdownSwitcher.mix = [
                     {
-                        block : ctx.theme,
-                        elem  : 'item',
-                        mods  : {
+                        block    : ctx.theme,
+                        elem     : 'item',
+                        elemMods : {
                             state : item.state
                         }
                     },
                     {
-                        block : ctx.block,
-                        elem  : 'item',
-                        mods  : {
+                        block    : ctx.block,
+                        elem     : 'item',
+                        elemMods : {
                             state : item.state
                         }
                     }
@@ -53,16 +53,16 @@ block('dropdown-menu')(
             } else {
                 dropdownSwitcher.mix = [
                     {
-                        block : ctx.theme,
-                        elem  : 'popup-item',
-                        mods  : {
+                        block    : ctx.theme,
+                        elem     : 'popup-item',
+                        elemMods : {
                             state : item.state
                         }
                     },
                     {
-                        block : ctx.block,
-                        elem  : 'popup-item',
-                        mods  : {
+                        block    : ctx.block,
+                        elem     : 'popup-item',
+                        elemMods : {
                             state : item.state
                         }
                     }
@@ -121,15 +121,15 @@ block('dropdown-menu')(
 
                         if (child.state) {
                             result = {
-                                block : ctx.theme,
-                                elem  : 'popup-item',
-                                mods  : {
+                                block    : ctx.theme,
+                                elem     : 'popup-item',
+                                elemMods : {
                                     state : child.state
                                 },
                                 mix : {
-                                    block : ctx.block,
-                                    elem  : 'popup-item',
-                                    mods  : {
+                                    block    : ctx.block,
+                                    elem     : 'popup-item',
+                                    elemMods : {
                                         state : child.state
                                     }
                                 },
@@ -140,16 +140,16 @@ block('dropdown-menu')(
                                 block : 'link',
                                 mix   : [
                                     {
-                                        block : ctx.theme,
-                                        elem  : 'popup-item',
-                                        mods  : {
+                                        block    : ctx.theme,
+                                        elem     : 'popup-item',
+                                        elemMods : {
                                             state : child.state
                                         }
                                     },
                                     {
-                                        block : ctx.block,
-                                        elem  : 'popup-item',
-                                        mods  : {
+                                        block    : ctx.block,
+                                        elem     : 'popup-item',
+                                        elemMods : {
                                             state : child.state
                                         }
                                     }
@@ -178,16 +178,16 @@ block('dropdown-menu')(
                     block : 'link',
                     mix   : [
                         {
-                            block : ctx.theme,
-                            elem  : 'item',
-                            mods  : {
+                            block    : ctx.theme,
+                            elem     : 'item',
+                            elemMods : {
                                 state : item.state
                             }
                         },
                         {
-                            block : ctx.block,
-                            elem  : 'item',
-                            mods  : {
+                            block    : ctx.block,
+                            elem     : 'item',
+                            elemMods : {
                                 state : item.state
                             }
                         }
