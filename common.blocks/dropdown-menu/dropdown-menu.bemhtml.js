@@ -1,5 +1,5 @@
-block('dropdown-menu')
-(
+block('dropdown-menu')(
+
     replace()(function () {
         const ctx = this.ctx;
 

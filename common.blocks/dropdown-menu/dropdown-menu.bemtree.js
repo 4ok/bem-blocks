@@ -1,5 +1,5 @@
-block('dropdown-menu')
-(
+block('dropdown-menu')(
+
     def()(function () {
         const url  = this.helper('url');
         const ctx  = this.ctx;

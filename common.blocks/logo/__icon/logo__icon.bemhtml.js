@@ -1,5 +1,5 @@
-block('logo').elem('icon')
-(
+block('logo').elem('icon')(
+
     replace()(function() {
         let ctx = this.ctx;
 

@@ -1,5 +1,5 @@
-block('yandex-metrica')
-(
+block('yandex-metrica')(
+
     replace()(function () {
         const ctx = this.ctx;
 
