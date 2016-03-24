@@ -1,9 +1,8 @@
 block('logo').elem('icon')(
 
     replace()(function() {
-        let ctx = this.ctx;
 
-        return Object.assign(ctx, {
+        return Object.assign(this.ctx, {
             block : 'icon',
             elem  : undefined,
             mix   : {

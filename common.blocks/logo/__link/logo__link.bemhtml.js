@@ -1,7 +1,7 @@
 block('logo').elem('link')(
 
     replace()(function() {
-        let ctx = this.ctx;
+        const ctx = this.ctx;
 
         if (Array.isArray(ctx.content)) {
 
