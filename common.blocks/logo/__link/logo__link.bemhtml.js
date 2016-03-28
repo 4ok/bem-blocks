@@ -1,19 +1,18 @@
 block('logo').elem('link')(
 
-    replace()(function() {
-        const ctx = this.ctx;
+    def()((ctx, json) => { // TODO: replace
 
-        if (Array.isArray(ctx.content)) {
+        if (Array.isArray(json.content)) {
 
-            for (var item in ctx.content) { // TODO
+            for (var item in json.content) { // TODO
 
-                if (ctx.content[item].elem) {
-                    ctx.content[item].block = 'logo';
+                if (json.content[item].elem) {
+                    json.content[item].block = 'logo';
                 }
             }
         }
 
-        return Object.assign(ctx, {
+        return Object.assign(json, {
             block : 'link',
             elem  : undefined,
             mix   : {

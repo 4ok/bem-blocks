@@ -1,8 +1,6 @@
 block('dropdown-menu')(
 
-    replace()(function () {
-        const ctx = this.ctx;
-
+    def()((ctx, json) => { // TODO: replace
         const popupsOptions = Object.assign({
             root : {
                 directions : [
@@ -18,12 +16,12 @@ block('dropdown-menu')(
                 ],
                 mainOffset : 0
             }
-        }, ctx.popupOptions || {});
+        }, json.popupOptions || {});
 
         const type      = 'hover';
         const childProp = 'children';
-        let getDropdown;
-        let getPopup;
+        let getDropdown;// TODO
+        let getPopup;// TODO
 
         getDropdown = function (item, level) {
             let dropdownSwitcher = {
@@ -35,7 +33,7 @@ block('dropdown-menu')(
             if (level == 1) {
                 dropdownSwitcher.mix = [
                     {
-                        block    : ctx.theme,
+                        block    : json.theme,
                         elem     : 'item',
                         elemMods : {
                             state : item.state
@@ -53,7 +51,7 @@ block('dropdown-menu')(
             } else {
                 dropdownSwitcher.mix = [
                     {
-                        block    : ctx.theme,
+                        block    : json.theme,
                         elem     : 'popup-item',
                         elemMods : {
                             state : item.state
@@ -101,7 +99,7 @@ block('dropdown-menu')(
                 },
                 mix : [
                     {
-                        block : ctx.theme,
+                        block : json.theme,
                         elem  : 'popup'
                     },
                     {
@@ -121,7 +119,7 @@ block('dropdown-menu')(
 
                         if (child.state) {
                             result = {
-                                block    : ctx.theme,
+                                block    : json.theme,
                                 elem     : 'popup-item',
                                 elemMods : {
                                     state : child.state
@@ -140,7 +138,7 @@ block('dropdown-menu')(
                                 block : 'link',
                                 mix   : [
                                     {
-                                        block    : ctx.theme,
+                                        block    : json.theme,
                                         elem     : 'popup-item',
                                         elemMods : {
                                             state : child.state
@@ -165,12 +163,12 @@ block('dropdown-menu')(
             };
         };
 
-        Object.assign(ctx, {
-            block : ctx.theme,
+        Object.assign(json, {
+            block : json.theme,
             mix   : {
                 block : ctx.block
             },
-            content : ctx.menu.items.map(function (item) {
+            content : json.menu.items.map(function (item) {
 
                 return (item[childProp])
                     ? getDropdown(item, 1)
@@ -178,7 +176,7 @@ block('dropdown-menu')(
                     block : 'link',
                     mix   : [
                         {
-                            block    : ctx.theme,
+                            block    : json.theme,
                             elem     : 'item',
                             elemMods : {
                                 state : item.state
@@ -198,6 +196,6 @@ block('dropdown-menu')(
             })
         });
 
-        return ctx;
+        return applyCtx(json);
     })
 );

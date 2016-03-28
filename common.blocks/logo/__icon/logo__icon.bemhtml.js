@@ -1,8 +1,8 @@
 block('logo').elem('icon')(
 
-    replace()(function() {
+    def()((ctx, json) => { // TODO: replace
 
-        return Object.assign(this.ctx, {
+        return Object.assign(json, {
             block : 'icon',
             elem  : undefined,
             mix   : {

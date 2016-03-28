@@ -1,8 +1,6 @@
 block('yandex-metrica')(
 
-    replace()(function () {
-        const ctx = this.ctx;
-
+    def()((ctx, json) => {
         const defaultParams = {
             webvisor            : true,
             clickmap            : true,
@@ -10,15 +8,15 @@ block('yandex-metrica')(
             accurateTrackBounce : true
         };
 
-        ctx.params = Object.assign({
-                id : ctx.id
+        json.params = Object.assign({
+                id : json.id
             },
             defaultParams,
-            ctx.params || {}
+            json.params || {}
         );
 
-        delete ctx.id;
+        delete json.id;
 
-        return ctx;
+        return json;
     })
 );

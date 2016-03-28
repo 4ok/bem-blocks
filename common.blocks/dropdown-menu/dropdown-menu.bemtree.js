@@ -1,12 +1,11 @@
 block('dropdown-menu')(
 
-    def()(function () {
-        const url  = this.helper('url');
-        const ctx  = this.ctx;
-        const menu = this.data['dropdown-menu'][ctx.name];
+    def()((ctx, json) => { // TODO: replace
+        const url  = ctx.helper('url');
+        const menu = ctx.data['dropdown-menu'][json.name];
 
-        ctx.menu = url.getMenu(menu);
+        json.menu = url.getMenu(menu);
 
-        return ctx;
+        return json;
     })
 );
