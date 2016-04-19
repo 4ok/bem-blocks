@@ -1,6 +1,6 @@
 ({
-    mustDeps: [
-        { block: 'link' },
-        { block: 'icon' }
-    ]
+    mustDeps : [
+        { block : 'link' },
+        { block : 'icon' },
+    ],
 });

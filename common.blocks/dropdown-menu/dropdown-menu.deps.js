@@ -4,26 +4,26 @@
             elems : [
                 'item',
                 'popup',
-                'popup-item'
-            ]
+                'popup-item',
+            ],
         },
         {
             block : 'popup',
-            mods  : {
-                type  : 'hover',
-                theme : 'islands'
-            }
+            mods : {
+                type : 'hover',
+                theme : 'islands',
+            },
         },
         {
             block : 'dropdown',
-            mods  : {
-                type  : 'hover',
-                theme : 'islands'
-            }
+            mods : {
+                type : 'hover',
+                theme : 'islands',
+            },
         },
         { block : 'grid' },
         { block : 'dropdown' },
         { block : 'link' },
-        { block : 'menu' }
-    ]
+        { block : 'menu' },
+    ],
 });

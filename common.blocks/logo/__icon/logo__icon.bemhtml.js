@@ -1,14 +1,14 @@
 block('logo').elem('icon')(
 
-    def()((ctx, json) => { // TODO: replace
+    replace()((ctx, json) =>
 
-        return Object.assign(json, {
+        Object.assign(json, {
             block : 'icon',
-            elem  : undefined,
-            mix   : {
-                block: ctx.block,
-                elem: 'icon'
-            }
-        });
-    })
+            elem : undefined,
+            mix : {
+                block : ctx.block,
+                elem : 'icon',
+            },
+        })
+    )
 );

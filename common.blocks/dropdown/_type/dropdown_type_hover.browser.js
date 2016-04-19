@@ -1,71 +1,59 @@
-var MOD_NAME_HOVERED = 'hovered';
-var MOD_NAME_OPENED  = 'opened';
+const MOD_NAME_HOVERED = 'hovered';
+const MOD_NAME_OPENED = 'opened';
 
-var SMALL_DEVICE_WIDTH = 768;
-
-var hoveredPopupLevel     = null;
-var prevHoveredPopupLevel = null;
+const SMALL_DEVICE_WIDTH = 768;
 
 modules.define(
     'dropdown',
     ['i-bem__dom', 'next-tick'],
-    function(provide, bemDom, nextTick, dropdown)
-    {
-        provide(dropdown.decl({ modName : 'type', modVal : 'hover' },
-        {
+    (provide, bemDom, nextTick, Dropdown) => {
+        provide(Dropdown.decl({ modName : 'type', modVal : 'hover' }, {
+
             onSetMod : {
                 js : {
-                    inited : function()
-                    {
+                    inited() {
                         this.__base.apply(this, arguments);
                         this._initListeners();
-                    }
-                }
+                    },
+                },
             },
 
-            _initListeners : function ()
-            {
-                var dropdown        = this.findBlockInside('link');
-                var popup           = this.getPopup();
-                var popupParams     = popup.params;
-                var onDelModHovered = this._onDelModHovered.bind(this, dropdown, popup);
-                var setModHovered   = { modName : MOD_NAME_HOVERED, modVal : true };
-                var delModHovered   = { modName : MOD_NAME_HOVERED, modVal : false };
-                var self            = this;
+            _initListeners() {
+                const link = this.findBlockInside('link');
+                const popup = this.getPopup();
+                const popupParams = popup.params;
+                const onDelModHovered = this._onDelModHovered.bind(this, link, popup);
+                const setModHovered = { modName : MOD_NAME_HOVERED, modVal : true };
+                const delModHovered = { modName : MOD_NAME_HOVERED, modVal : false };
 
-                dropdown
-                    .on(setModHovered, function () {
-                        //prevHoveredPopupLevel = popupParams.level - 1; // @todo
-                        self._onSetModHovered();
-                    })
+                link
+                    .on(setModHovered, this._onSetModHovered, this)
                     .on(delModHovered, onDelModHovered);
 
                 popup
-                    .on(setModHovered, function () {
-                        hoveredPopupLevel = popupParams.level;
+                    .on(setModHovered, () => {
+                        this.hoveredPopupLevel = popupParams.level;
                     })
-                    .on(delModHovered, function () {
-                        hoveredPopupLevel     = null;
-                        prevHoveredPopupLevel = popupParams.level;
+                    .on(delModHovered, () => {
+                        this.hoveredPopupLevel = null;
+                        this.prevHoveredPopupLevel = popupParams.level;
 
                         onDelModHovered();
                     });
             },
 
-            _onDelModHovered : function (dropdown, popup)
-            {
-                var self = this;
+            _onDelModHovered(dropdown, popup) {
 
-                nextTick(function() {
+                nextTick(() => {
 
                     if (!dropdown.hasMod(MOD_NAME_HOVERED)
                         && !popup.hasMod(MOD_NAME_HOVERED)
                     ) {
 
-                        if (hoveredPopupLevel) {
+                        if (this.hoveredPopupLevel) {
 
-                            if (hoveredPopupLevel <= prevHoveredPopupLevel) {
-                                self.delMod(MOD_NAME_OPENED);
+                            if (this.hoveredPopupLevel <= this.prevHoveredPopupLevel) {
+                                this.delMod(MOD_NAME_OPENED);
                             }
                         } else {
                             bemDom.doc.trigger('pointerclick');
@@ -74,15 +62,14 @@ modules.define(
                 });
             },
 
-            _onSetModHovered : function ()
-            {
-                if ($(document).width() >= SMALL_DEVICE_WIDTH) {
+            _onSetModHovered() {
+
+                if (bemDom.doc.width() >= SMALL_DEVICE_WIDTH) {
                     this.setMod(MOD_NAME_OPENED);
                 }
-            }
-        },
-        {
-            live : false
+            },
+        }, {
+            live : false,
         }));
     }
 );

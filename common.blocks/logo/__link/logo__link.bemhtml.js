@@ -1,24 +1,24 @@
 block('logo').elem('link')(
 
-    def()((ctx, json) => { // TODO: replace
+    replace()((ctx, json) => {
 
         if (Array.isArray(json.content)) {
 
-            for (var item in json.content) { // TODO
+            Object.keys(json.content).forEach(key => {
 
-                if (json.content[item].elem) {
-                    json.content[item].block = 'logo';
+                if (json.content[key].elem) {
+                    json.content[key].block = 'logo';
                 }
-            }
+            });
         }
 
         return Object.assign(json, {
             block : 'link',
-            elem  : undefined,
-            mix   : {
-                block: this.block,
-                elem: 'link'
-            }
+            elem : undefined,
+            mix : {
+                block : this.block,
+                elem : 'link',
+            },
         });
     })
 );

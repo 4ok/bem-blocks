@@ -1,30 +1,28 @@
 modules.define(
     'popup',
-    function(provide, popup)
-    {
-        provide(popup.decl({ modName : 'type', modVal : 'hover' },
-        {
+    (provide, Popup) => {
+        provide(Popup.decl({ modName : 'type', modVal : 'hover' }, {
+
             onSetMod : {
                 js : {
-                    inited : function() {
+                    inited() {
                         this.__base.apply(this, arguments);
                         this.bindTo('pointerleave', this._onPointerLeave);
-                    }
-                }
+                    },
+                },
             },
 
-            _onPointerOver : function() {
+            _onPointerOver() {
                 this.setMod('hovered');
             },
 
-            _onPointerLeave : function() {
+            _onPointerLeave() {
                 this.delMod('hovered');
-            }
-        },
-        {
-            live : function() {
-                this.liveBindTo('pointerover', this.prototype._onPointerOver)
-            }
+            },
+        }, {
+            live() {
+                this.liveBindTo('pointerover', this.prototype._onPointerOver);
+            },
         }));
     }
 );
