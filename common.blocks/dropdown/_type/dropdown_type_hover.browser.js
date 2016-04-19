@@ -3,6 +3,9 @@ const MOD_NAME_OPENED = 'opened';
 
 const SMALL_DEVICE_WIDTH = 768;
 
+let hoveredPopupLevel = null;
+let prevHoveredPopupLevel = null;
+
 modules.define(
     'dropdown',
     ['i-bem__dom', 'next-tick'],
@@ -32,11 +35,11 @@ modules.define(
 
                 popup
                     .on(setModHovered, () => {
-                        this.hoveredPopupLevel = popupParams.level;
+                        hoveredPopupLevel = popupParams.level;
                     })
                     .on(delModHovered, () => {
-                        this.hoveredPopupLevel = null;
-                        this.prevHoveredPopupLevel = popupParams.level;
+                        hoveredPopupLevel = null;
+                        prevHoveredPopupLevel = popupParams.level;
 
                         onDelModHovered();
                     });
@@ -50,9 +53,9 @@ modules.define(
                         && !popup.hasMod(MOD_NAME_HOVERED)
                     ) {
 
-                        if (this.hoveredPopupLevel) {
+                        if (hoveredPopupLevel) {
 
-                            if (this.hoveredPopupLevel <= this.prevHoveredPopupLevel) {
+                            if (hoveredPopupLevel <= prevHoveredPopupLevel) {
                                 this.delMod(MOD_NAME_OPENED);
                             }
                         } else {
