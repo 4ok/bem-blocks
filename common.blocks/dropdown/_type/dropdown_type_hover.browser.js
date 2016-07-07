@@ -1,48 +1,45 @@
-const MOD_NAME_HOVERED = 'hovered';
-const MOD_NAME_OPENED = 'opened';
-
-const SMALL_DEVICE_WIDTH = 768;
-
-let hoveredPopupLevel = null;
-let prevHoveredPopupLevel = null;
-
 modules.define(
     'dropdown',
     ['i-bem__dom', 'next-tick'],
     (provide, bemDom, nextTick, Dropdown) => {
+        const MOD_NAME_HOVERED = 'hovered';
+        const MOD_NAME_OPENED = 'opened';
+
+        const SET_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : true };
+        const DEL_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : false };
+
+        const SMALL_DEVICE_WIDTH = 768;
+
+        let hoveredPopupLevel = null;
+        let prevHoveredPopupLevel = null;
+
         provide(Dropdown.decl({ modName : 'type', modVal : 'hover' }, {
 
-            onSetMod : {
-                js : {
-                    inited() {
-                        this.__base.apply(this, arguments);
-                        this._initListeners();
-                    },
-                },
+            _onSetModHovered(e) {
+                this._initListeners(e.target);
             },
 
-            _initListeners() {
-                const link = this.findBlockInside('link');
+            _initListeners(link) {
                 const popup = this.getPopup();
                 const popupParams = popup.params;
                 const onDelModHovered = this._onDelModHovered.bind(this, link, popup);
-                const setModHovered = { modName : MOD_NAME_HOVERED, modVal : true };
-                const delModHovered = { modName : MOD_NAME_HOVERED, modVal : false };
 
-                link
-                    .on(setModHovered, this._onSetModHovered, this)
-                    .on(delModHovered, onDelModHovered);
+                link.on(DEL_MOD_HOVERED, onDelModHovered);
 
                 popup
-                    .on(setModHovered, () => {
+                    .on(SET_MOD_HOVERED, () => {
                         hoveredPopupLevel = popupParams.level;
                     })
-                    .on(delModHovered, () => {
+                    .on(DEL_MOD_HOVERED, () => {
                         hoveredPopupLevel = null;
                         prevHoveredPopupLevel = popupParams.level;
 
                         onDelModHovered();
                     });
+
+                if (bemDom.doc.width() >= SMALL_DEVICE_WIDTH) {
+                    this.setMod(MOD_NAME_OPENED);
+                }
             },
 
             _onDelModHovered(dropdown, popup) {
@@ -64,15 +61,10 @@ modules.define(
                     }
                 });
             },
-
-            _onSetModHovered() {
-
-                if (bemDom.doc.width() >= SMALL_DEVICE_WIDTH) {
-                    this.setMod(MOD_NAME_OPENED);
-                }
-            },
         }, {
-            live : false,
+            live : () => {
+                this.liveInitOnBlockInsideEvent(SET_MOD_HOVERED, 'link', this.prototype._onSetModHovered);
+            },
         }));
     }
 );
