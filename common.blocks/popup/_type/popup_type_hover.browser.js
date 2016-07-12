@@ -21,6 +21,7 @@ modules.define(
             },
         }, {
             live() {
+                // eslint-disable-next-line no-underscore-dangle
                 this.liveBindTo('pointerover', this.prototype._onPointerOver);
             },
         }));

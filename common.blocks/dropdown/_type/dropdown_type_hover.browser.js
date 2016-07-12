@@ -63,7 +63,11 @@ modules.define(
             },
         }, {
             live : () => {
-                this.liveInitOnBlockInsideEvent(SET_MOD_HOVERED, 'link', this.prototype._onSetModHovered);
+                this.liveInitOnBlockInsideEvent(
+                    SET_MOD_HOVERED, 'link',
+                    // eslint-disable-next-line no-underscore-dangle
+                    this.prototype._onSetModHovered
+                );
             },
         }));
     }
