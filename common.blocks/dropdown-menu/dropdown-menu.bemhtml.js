@@ -163,6 +163,7 @@ block('dropdown-menu')(
             block : json.theme,
             mix : {
                 block : ctx.block,
+                js: true,
             },
             content : json.menu.items.map(item => {
                 let result;
