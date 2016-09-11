@@ -1,0 +1,4 @@
+block('gallery')(
+
+    js()(true)
+);
