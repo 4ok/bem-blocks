@@ -1,4 +1,4 @@
-block('gallery')/* .mod('library', 'photoswipe') */( // TODO: not work
+block('gallery').mod('library', 'photoswipe')(
 
     elem('item')(
 
