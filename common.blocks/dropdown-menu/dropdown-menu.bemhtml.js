@@ -1,13 +1,19 @@
 block('dropdown-menu')(
 
-    replace()((ctx, json) => {
+    js()(true),
+
+    mix()((ctx, json) => ([].concat(json.mix || []), {
+        block : json.theme,
+    })),
+
+    content()((ctx, json) => {
         const popupsOptions = Object.assign({
             root : {
                 directions : [
                     'bottom-left',
                     'top-left',
                 ],
-                mainOffset : -1,
+                mainOffset : 0,
             },
             children : {
                 directions : [
@@ -159,45 +165,36 @@ block('dropdown-menu')(
             }),
         });
 
-        Object.assign(json, {
-            block : json.theme,
-            mix : {
-                block : ctx.block,
-                js: true,
-            },
-            content : json.menu.items.map(item => {
-                let result;
+        return json.menu.items.map(item => {
+            let result;
 
-                if (item[childProp]) {
-                    result = getDropdown(item, 1);
-                } else {
-                    result = {
-                        block : 'link',
-                        mix : [
-                            {
-                                block : json.theme,
-                                elem : 'item',
-                                elemMods : {
-                                    state : item.state,
-                                },
+            if (item[childProp]) {
+                result = getDropdown(item, 1);
+            } else {
+                result = {
+                    block : 'link',
+                    mix : [
+                        {
+                            block : json.theme,
+                            elem : 'item',
+                            elemMods : {
+                                state : item.state,
                             },
-                            {
-                                block : ctx.block,
-                                elem : 'item',
-                                elemMods : {
-                                    state : item.state,
-                                },
+                        },
+                        {
+                            block : ctx.block,
+                            elem : 'item',
+                            elemMods : {
+                                state : item.state,
                             },
-                        ],
-                        url : item.url,
-                        content : item.name,
-                    };
-                }
+                        },
+                    ],
+                    url : item.url,
+                    content : item.name,
+                };
+            }
 
-                return result;
-            }),
+            return result;
         });
-
-        return json;
     })
 );
