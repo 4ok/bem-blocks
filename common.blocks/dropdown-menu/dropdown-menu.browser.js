@@ -7,84 +7,66 @@ modules.define(
 
         const SET_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : true };
         const DEL_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : false };
-        const DEL_MOD_OPENED = { modName : MOD_NAME_OPENED, modVal : false };
 
         const SMALL_DEVICE_WIDTH = 768; // TODO
 
-        let hoveredPopupLevel = null;
-        let prevHoveredPopupLevel = null;
+        const POPUP_BEFORE_CLOSE_TIMEOUT_MS = 100;
 
         provide(bemDom.decl(this.name, {
 
-            onSetMod: {
-                js: {
-                    inited: function () {
-                        this
-                            .findBlocksInside('dropdown')
-                            .forEach(childDropdown => {
-                                childDropdown.on(
-                                    SET_MOD_HOVERED,
-                                    this._onDropdownSetModHovered, this
-                                );
-                            });
-                    }
+            _onDropdownSetModHoveredLive(e) {
+
+                if (this._dropdowns) {
+                    return;
                 }
+
+                this._dropdowns = this
+                    .findBlocksInside('dropdown')
+                    .reverse();
+
+                this._dropdowns.forEach(dropdown => {
+                    dropdown
+                        .on(SET_MOD_HOVERED, this._onDropdownSetModHovered, this)
+                        .on(DEL_MOD_HOVERED, this._onDropdownDelModHovered, this);
+                });
+
+                this._onDropdownSetModHovered(e);
             },
 
             _onDropdownSetModHovered(e) {
-                const dropdown = e.target;
-
-                dropdown
-                    .on(DEL_MOD_HOVERED, this._onDelModHovered)
-                    .getPopup()
-                    .on(SET_MOD_HOVERED, this._onPopupSetModHovered)
-                    .on(DEL_MOD_HOVERED, this._onPopupDelModHovered.bind(this, dropdown));
-
-                if (bemDom.doc.width() >= SMALL_DEVICE_WIDTH) {
-                    dropdown.setMod(MOD_NAME_OPENED);
-                }
+                e.target.setMod(MOD_NAME_OPENED);
             },
 
-            _onDelModHovered(e) {
-                const dropdown = e.target;
+            _onDropdownDelModHovered(e) {
 
-                nextTick(() => {
+                setTimeout(() => {
 
-                    if (!dropdown.hasMod(MOD_NAME_HOVERED)
-                        && !dropdown.getPopup().hasMod(MOD_NAME_HOVERED)
-                    ) {
+                    this._dropdowns.forEach(dropdown => {
 
-                        if (hoveredPopupLevel) {
+                        if (dropdown.hasMod(MOD_NAME_OPENED)) {
+                            const popup = dropdown.getPopup();
+                            const isPopupDropdownOpen = popup
+                                .findBlocksInside('dropdown')
+                                // Exclude current popup
+                                .slice(1)
+                                .some(popupDropdown => popupDropdown.hasMod(MOD_NAME_OPENED));
 
-                            if (hoveredPopupLevel <= prevHoveredPopupLevel) {
+                            if (!(dropdown.hasMod(MOD_NAME_HOVERED)
+                                || popup.hasMod(MOD_NAME_HOVERED)
+                                || isPopupDropdownOpen
+                            )) {
                                 dropdown.delMod(MOD_NAME_OPENED);
                             }
-                        } else {
-                            bemDom.doc.trigger('pointerclick');
                         }
-                    }
-                });
-            },
-
-            _onPopupSetModHovered(e) {
-                hoveredPopupLevel = e.target.params.level;
-            },
-
-            _onPopupDelModHovered(dropdown, e) {
-                hoveredPopupLevel = null;
-                prevHoveredPopupLevel = e.target.params.level;
-
-                this._onDelModHovered({
-                    target : dropdown
-                });
-            },
-
+                    })
+                }, POPUP_BEFORE_CLOSE_TIMEOUT_MS);
+            }
         }, {
             live() {
                 this.liveInitOnBlockInsideEvent(
                     SET_MOD_HOVERED, 'dropdown',
                     // eslint-disable-next-line no-underscore-dangle
-                    this.prototype._onDropdownSetModHovered
+                    this.prototype._onDropdownSetModHoveredLive
                 );
             },
         }));
