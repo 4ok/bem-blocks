@@ -34,6 +34,11 @@ modules.define(
             },
 
             _onDropdownSetModHovered(e) {
+
+                if (bemDom.doc.width() < SMALL_DEVICE_WIDTH) {
+                    return;
+                }
+
                 e.target.setMod(MOD_NAME_OPENED);
             },
 
