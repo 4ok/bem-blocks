@@ -27,7 +27,9 @@ block('dropdown-menu')(
         const type = 'hover';
         const childProp = 'children';
 
-        const getDropdown = (item, level) => {
+        return getItems(json.menu.items);
+
+        function getDropdown(item, level) {
             const dropdownSwitcher = {
                 block : 'link',
                 content : item.name,
@@ -95,33 +97,41 @@ block('dropdown-menu')(
             };
         };
 
-        const getPopup = (item, level) => ({
-            block : 'popup',
-            mods : {
-                type,
-            },
-            mix : [
-                {
-                    block : json.theme,
-                    elem : 'popup',
+        function getPopup(item, level) {
+            return {
+                block : 'popup',
+                mods : {
+                    type,
                 },
-                {
-                    block : ctx.block,
-                    elem : 'popup',
+                mix : [
+                    {
+                        block : json.theme,
+                        elem : 'popup',
+                    },
+                    {
+                        block : ctx.block,
+                        elem : 'popup',
+                    },
+                ],
+                js : {
+                    level,
                 },
-            ],
-            js : {
-                level,
-            },
-            content : item[childProp].map(child => {
-                let result;
+                content : item[childProp].map(child => {
 
-                if (child[childProp]) {
-                    result = getDropdown(child, level + 1);
-                } else {
+                    if (typeof child === 'string') {
+                        return {
+                            block : json.theme,
+                            elem : 'popup-title',
+                            content : child
+                        };
+                    }
+
+                    if (child[childProp]) {
+                        return getDropdown(child, level + 1);
+                    }
 
                     if (child.state) {
-                        result = {
+                        return {
                             block : json.theme,
                             elem : 'popup-item',
                             elemMods : {
@@ -136,65 +146,80 @@ block('dropdown-menu')(
                             },
                             content : child.name,
                         };
-                    } else {
-                        result = {
-                            block : 'link',
-                            mix : [
-                                {
-                                    block : json.theme,
-                                    elem : 'popup-item',
-                                    elemMods : {
-                                        state : child.state,
-                                    },
-                                },
-                                {
-                                    block : ctx.block,
-                                    elem : 'popup-item',
-                                    elemMods : {
-                                        state : child.state,
-                                    },
-                                },
-                            ],
-                            url : child.url,
-                            content : child.name,
-                        };
                     }
+
+                    return {
+                        block : 'link',
+                        mix : [
+                            {
+                                block : json.theme,
+                                elem : 'popup-item',
+                                elemMods : {
+                                    state : child.state,
+                                },
+                            },
+                            {
+                                block : ctx.block,
+                                elem : 'popup-item',
+                                elemMods : {
+                                    state : child.state,
+                                },
+                            },
+                        ],
+                        url : child.url,
+                        content : child.name,
+                    };
+                }),
+            };
+        };
+
+        function getItems(items) {
+            return items.map(item => {
+
+                if (item[childProp]) {
+                    return getDropdown(item, 1);
                 }
 
-                return result;
-            }),
-        });
+                if (item.state == 'active') {
+                    return {
+                        block: json.theme,
+                        elem: 'item',
+                        elemMods: {
+                            state: item.state,
+                        },
+                        mix: {
+                            block: ctx.block,
+                            elem: 'item',
+                            elemMods: {
+                                state: item.state,
+                            },
+                        },
+                        content: item.name,
+                    };
+                }
 
-        return json.menu.items.map(item => {
-            let result;
-
-            if (item[childProp]) {
-                result = getDropdown(item, 1);
-            } else {
-                result = {
-                    block : 'link',
-                    mix : [
+                return {
+                    block: 'link',
+                    mix: [
                         {
-                            block : json.theme,
-                            elem : 'item',
-                            elemMods : {
-                                state : item.state,
+                            block: json.theme,
+                            elem: 'item',
+                            elemMods: {
+                                state: item.state,
                             },
                         },
                         {
-                            block : ctx.block,
-                            elem : 'item',
-                            elemMods : {
-                                state : item.state,
+                            block: ctx.block,
+                            elem: 'item',
+                            elemMods: {
+                                state: item.state,
                             },
                         },
                     ],
-                    url : item.url,
-                    content : item.name,
+                    url: item.url,
+                    content: item.name,
                 };
-            }
-
-            return result;
-        });
+            })
+        };
     })
 );
