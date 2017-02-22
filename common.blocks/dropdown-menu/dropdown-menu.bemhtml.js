@@ -29,10 +29,14 @@ block('dropdown-menu')(
 
         return getItems(json.menu.items);
 
+        function getItemName(item) {
+            return item.short_name || item.name;
+        }
+
         function getDropdown(item, level) {
             const dropdownSwitcher = {
                 block : 'link',
-                content : item.name,
+                content : getItemName(item),
             };
             let popupOptions;
 
@@ -130,6 +134,8 @@ block('dropdown-menu')(
                         return getDropdown(child, level + 1);
                     }
 
+                    const name = getItemName(child);
+
                     if (child.state) {
                         return {
                             block : json.theme,
@@ -144,7 +150,7 @@ block('dropdown-menu')(
                                     state : child.state,
                                 },
                             },
-                            content : child.name,
+                            content : name,
                         };
                     }
 
@@ -167,7 +173,7 @@ block('dropdown-menu')(
                             },
                         ],
                         url : child.url,
-                        content : child.name,
+                        content : name,
                     };
                 }),
             };
@@ -179,6 +185,8 @@ block('dropdown-menu')(
                 if (item[childProp]) {
                     return getDropdown(item, 1);
                 }
+
+                const name = getItemName(item);
 
                 if (item.state == 'active') {
                     return {
@@ -194,7 +202,7 @@ block('dropdown-menu')(
                                 state: item.state,
                             },
                         },
-                        content: item.name,
+                        content: name,
                     };
                 }
 
@@ -217,7 +225,7 @@ block('dropdown-menu')(
                         },
                     ],
                     url: item.url,
-                    content: item.name,
+                    content: name,
                 };
             })
         };
