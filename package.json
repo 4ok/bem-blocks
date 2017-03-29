@@ -17,5 +17,7 @@
     "lint.stylus": "node_modules/.bin/stylint --config node_modules/stylint-config-4ok/.configrc common.blocks"
   },
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "image-size": "^0.5.1"
+  }
 }
