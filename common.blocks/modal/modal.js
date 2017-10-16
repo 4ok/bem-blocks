@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 /**
  * @module address-map
  */

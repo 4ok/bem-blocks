@@ -3,7 +3,7 @@ modules.define(
     (provide, Dropdown) => {
         provide(Dropdown.decl({ modName : 'type', modVal : 'hover' }, {
 
-            _onPointerOver() {
+            onPointerOver() {
                 this.setMod('hovered');
                 this.bindTo('pointerleave', this._onPointerLeave);
             },
@@ -15,7 +15,7 @@ modules.define(
         }, {
             live() {
                 // eslint-disable-next-line no-underscore-dangle
-                this.liveBindTo('pointerover', this.prototype._onPointerOver);
+                this.liveBindTo('pointerover', this.prototype.onPointerOver);
             },
         }));
     }

@@ -25,16 +25,14 @@ modules.define(
                 },
             },
 
-            _onItemClick(e) {
+            onItemClick(e) {
                 const params = this.elemParams(e.currentTarget);
 
                 this._pswp.show(params.items);
             },
         }, {
             live() {
-                /* eslint-disable no-underscore-dangle */
-                this.liveBindTo('item', 'pointerclick', this.prototype._onItemClick);
-                /* eslint-enable no-underscore-dangle */
+                this.liveBindTo('item', 'pointerclick', this.prototype.onItemClick);
             },
         }));
     }

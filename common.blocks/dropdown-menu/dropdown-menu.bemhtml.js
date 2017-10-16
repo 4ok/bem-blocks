@@ -99,7 +99,7 @@ block('dropdown-menu')(
                 switcher : dropdownSwitcher,
                 popup,
             };
-        };
+        }
 
         function getPopup(item, level) {
             return {
@@ -177,7 +177,7 @@ block('dropdown-menu')(
                     };
                 }),
             };
-        };
+        }
 
         function getItems(items) {
             return items.map(item => {
@@ -188,7 +188,7 @@ block('dropdown-menu')(
 
                 const name = getItemName(item);
 
-                if (item.state == 'active') {
+                if (item.state === 'active') {
                     return {
                         block: json.theme,
                         elem: 'item',
@@ -228,6 +228,6 @@ block('dropdown-menu')(
                     content: name,
                 };
             })
-        };
+        }
     })
 );

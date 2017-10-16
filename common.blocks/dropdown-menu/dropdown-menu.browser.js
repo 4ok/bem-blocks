@@ -1,20 +1,18 @@
 modules.define(
     'dropdown-menu',
     ['i-bem__dom', 'next-tick'],
-    function dropdownMenu(provide, bemDom, nextTick) {
+    function dropdownMenu(provide, bemDom) {
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';
 
         const SET_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : true };
         const DEL_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : false };
 
-        const SMALL_DEVICE_WIDTH = 768; // TODO
-
         const POPUP_BEFORE_CLOSE_TIMEOUT_MS = 100;
 
         provide(bemDom.decl(this.name, {
 
-            _onDropdownSetModHoveredLive(e) {
+            onDropdownSetModHoveredLive(e) {
 
                 if (this._dropdowns) {
                     return;
@@ -34,15 +32,10 @@ modules.define(
             },
 
             _onDropdownSetModHovered(e) {
-
-                if (bemDom.doc.width() < SMALL_DEVICE_WIDTH) {
-                    return;
-                }
-
                 e.target.setMod(MOD_NAME_OPENED);
             },
 
-            _onDropdownDelModHovered(e) {
+            _onDropdownDelModHovered() {
 
                 setTimeout(() => {
 
@@ -70,8 +63,7 @@ modules.define(
             live() {
                 this.liveInitOnBlockInsideEvent(
                     SET_MOD_HOVERED, 'dropdown',
-                    // eslint-disable-next-line no-underscore-dangle
-                    this.prototype._onDropdownSetModHoveredLive
+                    this.prototype.onDropdownSetModHoveredLive
                 );
             },
         }));
