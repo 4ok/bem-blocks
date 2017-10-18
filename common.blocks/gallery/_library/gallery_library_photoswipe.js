@@ -12,13 +12,13 @@ modules.define(
          * @bem
          */
         provide(bemDom.decl({
-            block : this.name,
-            modName : 'library',
-            modVal : 'photoswipe',
+            block: this.name,
+            modName: 'library',
+            modVal: 'photoswipe',
         }, /** @lends pswp.prototype */{
 
-            onSetMod : {
-                js : {
+            onSetMod: {
+                js: {
                     inited() {
                         this._pswp = this.findBlockInside('pswp');
                     },

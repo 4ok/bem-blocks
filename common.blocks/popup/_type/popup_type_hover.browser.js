@@ -1,7 +1,7 @@
 modules.define(
     'popup',
     (provide, Popup) => {
-        provide(Popup.decl({ modName : 'type', modVal : 'hover' }, {
+        provide(Popup.decl({ modName: 'type', modVal: 'hover' }, {
 
             onPointerOver() {
                 this.setMod('hovered');

@@ -13,15 +13,15 @@ modules.define(
          */
         provide(bemDom.decl(this.name, /** @lends address-map.prototype */{
 
-            onSetMod : {
-                js : {
+            onSetMod: {
+                js: {
                     inited() {
                         this.__base.apply(this);
                         this._page = this.findBlockOutside('page');
                     },
                 },
-                visible : {
-                    '*' : function visibleToggle(modName, modVal) {
+                visible: {
+                    '*': function visibleToggle(modName, modVal) {
                         this._page.setMod('freezed', modVal);
                     },
                 },

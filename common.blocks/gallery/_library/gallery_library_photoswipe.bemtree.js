@@ -8,7 +8,7 @@ block('gallery').mod('library', 'photoswipe')(
             /* eslint-disable global-require */
             const fs = require('fs');
             const config = require('config');
-            var imageSize = require('image-size');
+            const imageSize = require('image-size');
             /* eslint-enable global-require */
 
             // TODO
@@ -19,7 +19,7 @@ block('gallery').mod('library', 'photoswipe')(
             images.sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
             json.js = {
-                items : images.map(image => {
+                items: images.map((image) => {
                     const size = imageSize(imagesPath + image);
 
                     return {

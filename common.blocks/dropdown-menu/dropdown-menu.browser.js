@@ -5,8 +5,8 @@ modules.define(
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';
 
-        const SET_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : true };
-        const DEL_MOD_HOVERED = { modName : MOD_NAME_HOVERED, modVal : false };
+        const SET_MOD_HOVERED = { modName: MOD_NAME_HOVERED, modVal: true };
+        const DEL_MOD_HOVERED = { modName: MOD_NAME_HOVERED, modVal: false };
 
         const POPUP_BEFORE_CLOSE_TIMEOUT_MS = 100;
 
@@ -22,7 +22,7 @@ modules.define(
                     .findBlocksInside('dropdown')
                     .reverse();
 
-                this._dropdowns.forEach(dropdown => {
+                this._dropdowns.forEach((dropdown) => {
                     dropdown
                         .on(SET_MOD_HOVERED, this._onDropdownSetModHovered, this)
                         .on(DEL_MOD_HOVERED, this._onDropdownDelModHovered, this);
@@ -39,7 +39,7 @@ modules.define(
 
                 setTimeout(() => {
 
-                    this._dropdowns.forEach(dropdown => {
+                    this._dropdowns.forEach((dropdown) => {
 
                         if (dropdown.hasMod(MOD_NAME_OPENED)) {
                             const popup = dropdown.getPopup();
@@ -56,9 +56,9 @@ modules.define(
                                 dropdown.delMod(MOD_NAME_OPENED);
                             }
                         }
-                    })
+                    });
                 }, POPUP_BEFORE_CLOSE_TIMEOUT_MS);
-            }
+            },
         }, {
             live() {
                 this.liveInitOnBlockInsideEvent(

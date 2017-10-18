@@ -4,7 +4,7 @@ block('logo').elem('link')(
 
         if (Array.isArray(json.content)) {
 
-            Object.keys(json.content).forEach(key => {
+            Object.keys(json.content).forEach((key) => {
 
                 if (json.content[key].elem) {
                     json.content[key].block = 'logo';
@@ -13,11 +13,11 @@ block('logo').elem('link')(
         }
 
         return Object.assign(json, {
-            block : 'link',
-            elem : undefined,
-            mix : {
-                block : this.block,
-                elem : 'link',
+            block: 'link',
+            elem: undefined,
+            mix: {
+                block: this.block,
+                elem: 'link',
             },
         });
     })

@@ -1,9 +1,9 @@
 ({
-    shouldDeps : [
+    shouldDeps: [
         {
-            block : 'page',
-            mods : {
-                freezed : true,
+            block: 'page',
+            mods: {
+                freezed: true,
             },
         },
     ],

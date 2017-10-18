@@ -13,9 +13,9 @@ modules.define(
          * @type {object}
          */
         const DEFAULT_PHOTO_SWIPE_OPTIONS = {
-            shareEl : false,
-            loop : true,
-            history : false,
+            shareEl: false,
+            loop: true,
+            history: false,
         };
 
         /**

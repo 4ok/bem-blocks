@@ -1,79 +1,78 @@
 block('pswp')(
-
     js()(true),
 
     content()([
-        { elem : 'bg' },
+        { elem: 'bg' },
         {
-            elem : 'scroll-wrap',
-            content : [
+            elem: 'scroll-wrap',
+            content: [
                 {
-                    elem : 'container',
-                    content : [
-                        { elem : 'item' },
-                        { elem : 'item' },
-                        { elem : 'item' },
+                    elem: 'container',
+                    content: [
+                        { elem: 'item' },
+                        { elem: 'item' },
+                        { elem: 'item' },
                     ],
                 },
                 {
-                    elem : 'ui',
-                    mix : {
-                        block : 'pswp',
-                        elem : 'ui--hidden',
+                    elem: 'ui',
+                    mix: {
+                        block: 'pswp',
+                        elem: 'ui--hidden',
                     },
-                    content : [
+                    content: [
                         {
-                            elem : 'top-bar',
-                            content : [
-                                { elem : 'counter' },
+                            elem: 'top-bar',
+                            content: [
+                                { elem: 'counter' },
                                 {
-                                    elem : 'button',
-                                    mix : {
-                                        block : 'pswp',
-                                        elem : 'button--close',
+                                    elem: 'button',
+                                    mix: {
+                                        block: 'pswp',
+                                        elem: 'button--close',
                                     },
-                                    attrs : {
-                                        title : 'Закрыть (Esc)',
+                                    attrs: {
+                                        title: 'Закрыть (Esc)',
                                     },
                                 },
                                 {
-                                    elem : 'button',
-                                    mix : {
-                                        block : 'pswp',
-                                        elem : 'button--share',
+                                    elem: 'button',
+                                    mix: {
+                                        block: 'pswp',
+                                        elem: 'button--share',
                                     },
-                                    attrs : {
-                                        title : 'Поделиться',
-                                    },
-                                },
-                                {
-                                    elem : 'button',
-                                    mix : {
-                                        block : 'pswp',
-                                        elem : 'button--fs',
-                                    },
-                                    attrs : {
-                                        title : 'Переключить полноэкранный режим',
+                                    attrs: {
+                                        title: 'Поделиться',
                                     },
                                 },
                                 {
-                                    elem : 'button',
-                                    mix : {
-                                        block : 'pswp',
-                                        elem : 'button--zoom',
+                                    elem: 'button',
+                                    mix: {
+                                        block: 'pswp',
+                                        elem: 'button--fs',
                                     },
-                                    attrs : {
-                                        title : 'Увеличение/Уменьшение',
+                                    attrs: {
+                                        title: 'Переключить полноэкранный режим',
                                     },
                                 },
                                 {
-                                    elem : 'preloader',
-                                    content : {
-                                        elem : 'preloader__icn',
-                                        content : {
-                                            elem : 'preloader__cut',
-                                            content : {
-                                                elem : 'preloader__donut',
+                                    elem: 'button',
+                                    mix: {
+                                        block: 'pswp',
+                                        elem: 'button--zoom',
+                                    },
+                                    attrs: {
+                                        title: 'Увеличение/Уменьшение',
+                                    },
+                                },
+                                {
+                                    elem: 'preloader',
+                                    content: {
+                                        elem: 'preloader__icn',
+                                        content: {
+                                            elem: 'preloader__cut',
+                                            content: {
+                                                elem: 'preloader__donut',
                                             },
                                         },
                                     },
@@ -81,47 +80,47 @@ block('pswp')(
                             ],
                         },
                         {
-                            elem : 'share-modal',
-                            mix : [
+                            elem: 'share-modal',
+                            mix: [
                                 {
-                                    block : 'pswp',
-                                    elem : 'share-modal--hidden',
+                                    block: 'pswp',
+                                    elem: 'share-modal--hidden',
                                 },
                                 {
-                                    block : 'pswp',
-                                    elem : 'single-tap',
+                                    block: 'pswp',
+                                    elem: 'single-tap',
                                 },
                             ],
-                            content : {
-                                elem : 'share-tooltip',
+                            content: {
+                                elem: 'share-tooltip',
                             },
                         },
                         {
-                            elem : 'button',
-                            mix : {
+                            elem: 'button',
+                            mix: {
 
-                                block : 'pswp',
-                                elem : 'button--arrow--left',
-                                attrs : {
-                                    title : 'Предыдущая',
+                                block: 'pswp',
+                                elem: 'button--arrow--left',
+                                attrs: {
+                                    title: 'Предыдущая',
                                 },
                             },
                         },
                         {
-                            elem : 'button',
-                            mix : {
+                            elem: 'button',
+                            mix: {
 
-                                block : 'pswp',
-                                elem : 'button--arrow--right',
-                                attrs : {
-                                    title : 'Следущая',
+                                block: 'pswp',
+                                elem: 'button--arrow--right',
+                                attrs: {
+                                    title: 'Следущая',
                                 },
                             },
                         },
                         {
-                            elem : 'caption',
-                            content : {
-                                elem : 'caption__center',
+                            elem: 'caption',
+                            content: {
+                                elem: 'caption__center',
                             },
                         },
                     ],

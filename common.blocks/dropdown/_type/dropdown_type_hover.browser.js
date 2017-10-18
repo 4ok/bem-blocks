@@ -1,7 +1,7 @@
 modules.define(
     'dropdown',
     (provide, Dropdown) => {
-        provide(Dropdown.decl({ modName : 'type', modVal : 'hover' }, {
+        provide(Dropdown.decl({ modName: 'type', modVal: 'hover' }, {
 
             onPointerOver() {
                 this.setMod('hovered');

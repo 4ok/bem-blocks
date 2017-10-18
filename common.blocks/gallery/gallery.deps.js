@@ -1,10 +1,10 @@
 ({
-    mustDeps : [
+    mustDeps: [
         {
-            block : 'modal',
-            mods : {
-                theme : 'islands'
-            }
+            block: 'modal',
+            mods: {
+                theme: 'islands',
+            },
         },
     ],
 });
