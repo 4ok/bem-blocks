@@ -19,7 +19,7 @@ modules.define(
                 }
 
                 this._dropdowns = this
-                    .findBlocksInside('dropdown')
+                    .findChildBlock(Dropdown)
                     .reverse();
 
                 this._dropdowns.forEach((dropdown) => {
@@ -44,7 +44,7 @@ modules.define(
                         if (dropdown.hasMod(MOD_NAME_OPENED)) {
                             const popup = dropdown.getPopup();
                             const isPopupDropdownOpen = popup
-                                .findBlocksInside('dropdown')
+                                .findChildBlock(Dropdown)
                                 // Exclude current popup
                                 .slice(1)
                                 .some(popupDropdown => popupDropdown.hasMod(MOD_NAME_OPENED));

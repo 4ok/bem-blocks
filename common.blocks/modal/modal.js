@@ -3,8 +3,8 @@
  */
 modules.define(
     'modal',
-    ['i-bem-dom'],
-    function modal(provide, bemDom) {
+    ['i-bem-dom', 'page'],
+    function modal(provide, bemDom, Page) {
 
         /**
          * @exports
@@ -17,7 +17,7 @@ modules.define(
                 js: {
                     inited() {
                         this.__base.apply(this);
-                        this._page = this.findBlockOutside('page');
+                        this._page = this.findParentBlock(Page);
                     },
                 },
                 visible: {

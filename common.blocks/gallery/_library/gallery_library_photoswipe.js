@@ -20,7 +20,7 @@ modules.define(
             onSetMod: {
                 js: {
                     inited() {
-                        this._pswp = this.findBlockInside('pswp');
+                        this._pswp = this.findChildBlock('pswp');
                     },
                 },
             },
