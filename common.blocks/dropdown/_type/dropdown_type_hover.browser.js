@@ -1,7 +1,10 @@
 modules.define(
     'dropdown',
     (provide, Dropdown) => {
-        provide(Dropdown.decl({ modName: 'type', modVal: 'hover' }, {
+        provide(Dropdown.declMod({
+            modName: 'type',
+            modVal: 'hover',
+        }, /** @lends dropdown.prototype */{
 
             onPointerOver() {
                 this.setMod('hovered');
@@ -12,7 +15,7 @@ modules.define(
                 this.delMod('hovered');
                 this.unbindFrom('pointerleave', this._onPointerLeave);
             },
-        }, {
+        }, /** @lends dropdown */{
             onInit() {
                 this._domEvents().on('pointerover', this.prototype.onPointerOver);
             },

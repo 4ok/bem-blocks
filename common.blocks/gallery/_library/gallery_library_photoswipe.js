@@ -15,7 +15,7 @@ modules.define(
             block: this.name,
             modName: 'library',
             modVal: 'photoswipe',
-        }, /** @lends pswp.prototype */{
+        }, /** @lends gallery.prototype */{
 
             onSetMod: {
                 js: {
@@ -30,7 +30,7 @@ modules.define(
 
                 this._pswp.show(params.items);
             },
-        }, {
+        }, /** @lends gallery */{
             onInit() {
                 this._domEvents('item').on('click', this.prototype.onItemClick);
             },
