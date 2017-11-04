@@ -10,7 +10,7 @@ modules.define(
 
         const POPUP_BEFORE_CLOSE_TIMEOUT_MS = 100;
 
-        provide(bemDom.decl(this.name, {
+        provide(bemDom.declBlock(this.name, /** @lends dropdown-menu.prototype */ {
 
             onDropdownSetModHoveredLive(e) {
 

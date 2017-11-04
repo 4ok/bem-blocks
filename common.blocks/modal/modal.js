@@ -11,7 +11,7 @@ modules.define(
          * @class address-map
          * @bem
          */
-        provide(bemDom.decl(this.name, /** @lends address-map.prototype */{
+        provide(bemDom.declBlock(this.name, /** @lends address-map.prototype */{
 
             onSetMod: {
                 js: {

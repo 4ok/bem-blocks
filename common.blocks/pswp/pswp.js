@@ -23,7 +23,7 @@ modules.define(
          * @class pswp
          * @bem
          */
-        provide(bemDom.decl(this.name, /** @lends pswp.prototype */{
+        provide(bemDom.declBlock(this.name, /** @lends pswp.prototype */{
 
             /**
              * Инициализирует и после показывает галерею.
