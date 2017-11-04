@@ -3,7 +3,7 @@
  */
 modules.define(
     'gallery',
-    ['i-bem__dom'],
+    ['i-bem-dom'],
     function gallery(provide, bemDom) {
 
         /**

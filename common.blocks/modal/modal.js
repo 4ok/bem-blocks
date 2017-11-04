@@ -3,7 +3,7 @@
  */
 modules.define(
     'modal',
-    ['i-bem__dom'],
+    ['i-bem-dom'],
     function modal(provide, bemDom) {
 
         /**

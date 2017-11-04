@@ -1,6 +1,6 @@
 modules.define(
     'dropdown-menu',
-    ['i-bem__dom', 'next-tick'],
+    ['i-bem-dom', 'next-tick'],
     function dropdownMenu(provide, bemDom) {
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';

@@ -3,7 +3,7 @@
  */
 modules.define(
     'pswp',
-    ['i-bem__dom'],
+    ['i-bem-dom'],
     function pswp(provide, bemDom) {
 
         /**
