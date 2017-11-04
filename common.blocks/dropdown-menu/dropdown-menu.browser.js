@@ -1,7 +1,7 @@
 modules.define(
     'dropdown-menu',
-    ['i-bem-dom', 'next-tick'],
-    function dropdownMenu(provide, bemDom) {
+    ['i-bem-dom', 'dropdown'],
+    function dropdownMenu(provide, bemDom, Dropdown) {
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';
 
@@ -60,9 +60,10 @@ modules.define(
                 }, POPUP_BEFORE_CLOSE_TIMEOUT_MS);
             },
         }, {
-            live() {
-                this.liveInitOnBlockInsideEvent(
-                    SET_MOD_HOVERED, 'dropdown',
+            onInit() {
+
+                this._events(Dropdown).on(
+                    SET_MOD_HOVERED,
                     this.prototype.onDropdownSetModHoveredLive
                 );
             },

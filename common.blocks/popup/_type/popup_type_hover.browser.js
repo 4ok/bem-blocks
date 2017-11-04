@@ -13,8 +13,8 @@ modules.define(
                 this.unbindFrom('pointerleave', this._onPointerLeave);
             },
         }, {
-            live() {
-                this.liveBindTo('pointerover', this.prototype.onPointerOver);
+            onInit() {
+                this._domEvents().on('pointerover', this.prototype.onPointerOver);
             },
         }));
     }

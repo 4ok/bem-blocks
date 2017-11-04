@@ -13,9 +13,8 @@ modules.define(
                 this.unbindFrom('pointerleave', this._onPointerLeave);
             },
         }, {
-            live() {
-                // eslint-disable-next-line no-underscore-dangle
-                this.liveBindTo('pointerover', this.prototype.onPointerOver);
+            onInit() {
+                this._domEvents().on('pointerover', this.prototype.onPointerOver);
             },
         }));
     }

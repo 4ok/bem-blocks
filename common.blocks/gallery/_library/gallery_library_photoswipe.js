@@ -3,15 +3,16 @@
  */
 modules.define(
     'gallery',
-    ['i-bem-dom'],
-    function gallery(provide, Gallery) {
+    ['i-bem__dom'],
+    function gallery(provide, bemDom) {
 
         /**
          * @exports
          * @class pswp
          * @bem
          */
-        provide(Gallery.declMod({
+        provide(bemDom.declBlock({
+            block: this.name,
             modName: 'library',
             modVal: 'photoswipe',
         }, /** @lends pswp.prototype */{
@@ -30,8 +31,8 @@ modules.define(
                 this._pswp.show(params.items);
             },
         }, {
-            live() {
-                this.liveBindTo('item', 'pointerclick', this.prototype.onItemClick);
+            onInit() {
+                this._domEvents('item').on('click', this.prototype.onItemClick);
             },
         }));
     }
