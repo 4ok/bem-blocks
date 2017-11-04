@@ -1,5 +1,5 @@
 /**
- * @module address-map
+ * @module modal
  */
 modules.define(
     'modal',
@@ -8,10 +8,10 @@ modules.define(
 
         /**
          * @exports
-         * @class address-map
+         * @class modal
          * @bem
          */
-        provide(bemDom.declBlock(this.name, /** @lends address-map.prototype */{
+        provide(bemDom.declBlock(this.name, /** @lends modal.prototype */{
 
             onSetMod: {
                 js: {

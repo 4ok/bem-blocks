@@ -8,7 +8,7 @@ modules.define(
 
         /**
          * @exports
-         * @class pswp
+         * @class gallery_library_photoswipe
          * @bem
          */
         provide(bemDom.declBlock({

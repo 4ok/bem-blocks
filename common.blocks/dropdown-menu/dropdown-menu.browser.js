@@ -10,6 +10,11 @@ modules.define(
 
         const POPUP_BEFORE_CLOSE_TIMEOUT_MS = 100;
 
+        /**
+         * @exports
+         * @class dropdown-menu
+         * @bem
+         */
         provide(bemDom.declBlock(this.name, /** @lends dropdown-menu.prototype */{
 
             onDropdownSetModHoveredLive(e) {
