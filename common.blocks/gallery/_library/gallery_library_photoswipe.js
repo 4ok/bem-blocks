@@ -31,6 +31,8 @@ modules.define(
                 this._pswp.show(params.items);
             },
         }, /** @lends gallery */{
+            lazyInit: true,
+
             onInit() {
                 this._domEvents('item').on('click', this.prototype.onItemClick);
             },

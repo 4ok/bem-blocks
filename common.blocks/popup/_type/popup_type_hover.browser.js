@@ -16,6 +16,8 @@ modules.define(
                 this.unbindFrom('pointerleave', this._onPointerLeave);
             },
         }, /** @lends popup */{
+            lazyInit: true,
+
             onInit() {
                 this._domEvents().on('pointerover', this.prototype.onPointerOver);
             },

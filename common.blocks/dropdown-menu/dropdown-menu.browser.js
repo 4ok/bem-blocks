@@ -60,6 +60,8 @@ modules.define(
                 }, POPUP_BEFORE_CLOSE_TIMEOUT_MS);
             },
         }, /** @lends dropdown-menu */{
+            lazyInit: true,
+
             onInit() {
 
                 this._events(Dropdown).on(
