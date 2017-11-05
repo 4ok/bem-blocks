@@ -1,10 +1,13 @@
+/**
+ * @module popup
+ */
 modules.define(
     'popup',
     (provide, Popup) => {
 
         /**
          * @exports
-         * @class popup_type_hover
+         * @class popup
          * @bem
          */
         provide(Popup.declMod({

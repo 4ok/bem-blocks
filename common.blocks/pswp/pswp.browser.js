@@ -4,11 +4,9 @@
 modules.define(
     'pswp',
     ['i-bem-dom'],
-    function pswp(provide, bemDom) {
+    (provide, bemDom) => {
 
         /**
-         * Дефолтные настройки галереи
-         *
          * @const
          * @type {object}
          */

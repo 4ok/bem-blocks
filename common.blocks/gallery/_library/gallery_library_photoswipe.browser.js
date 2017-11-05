@@ -1,18 +1,16 @@
 /**
- * @module pswp
+ * @module gallery
  */
 modules.define(
     'gallery',
-    ['i-bem__dom'],
-    function gallery(provide, bemDom) {
+    (provide, Gallery) => {
 
         /**
          * @exports
-         * @class gallery_library_photoswipe
+         * @class gallery
          * @bem
          */
-        provide(bemDom.declBlock({
-            block: this.name,
+        provide(Gallery.declMod({
             modName: 'library',
             modVal: 'photoswipe',
         }, /** @lends gallery.prototype */{

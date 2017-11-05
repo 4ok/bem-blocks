@@ -1,10 +1,13 @@
+/**
+ * @module dropdown
+ */
 modules.define(
     'dropdown',
     (provide, Dropdown) => {
 
         /**
          * @exports
-         * @class dropdown_type_hover
+         * @class dropdown
          * @bem
          */
         provide(Dropdown.declMod({

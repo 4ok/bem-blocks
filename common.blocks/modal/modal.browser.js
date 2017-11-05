@@ -4,7 +4,7 @@
 modules.define(
     'modal',
     ['i-bem-dom', 'page'],
-    function modal(provide, bemDom, Page) {
+    (provide, bemDom, Page) => {
 
         /**
          * @exports

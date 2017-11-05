@@ -1,7 +1,10 @@
+/**
+ * @module dropdown-menu
+ */
 modules.define(
     'dropdown-menu',
     ['i-bem-dom', 'dropdown'],
-    function dropdownMenu(provide, bemDom, Dropdown) {
+    (provide, bemDom, Dropdown) => {
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';
 
