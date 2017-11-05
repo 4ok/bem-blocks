@@ -4,7 +4,7 @@
 modules.define(
     'page',
     ['i-bem-dom'],
-    (provide, bemDom) => {
+    function page(provide, bemDom) {
 
         /**
          * @exports

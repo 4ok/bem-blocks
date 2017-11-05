@@ -4,7 +4,7 @@
 modules.define(
     'dropdown-menu',
     ['i-bem-dom', 'dropdown'],
-    (provide, bemDom, Dropdown) => {
+    function dropdownMenu(provide, bemDom, Dropdown) {
         const MOD_NAME_HOVERED = 'hovered';
         const MOD_NAME_OPENED = 'opened';
 

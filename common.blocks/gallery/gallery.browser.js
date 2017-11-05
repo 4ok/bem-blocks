@@ -4,7 +4,7 @@
 modules.define(
     'gallery',
     ['i-bem-dom'],
-    (provide, bemDom) => {
+    function gallery(provide, bemDom) {
 
         /**
          * @exports

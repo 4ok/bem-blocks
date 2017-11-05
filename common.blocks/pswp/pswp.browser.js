@@ -4,7 +4,7 @@
 modules.define(
     'pswp',
     ['i-bem-dom'],
-    (provide, bemDom) => {
+    function pswp(provide, bemDom) {
 
         /**
          * @const
