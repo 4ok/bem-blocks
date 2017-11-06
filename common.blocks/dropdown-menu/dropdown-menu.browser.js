@@ -71,7 +71,6 @@ modules.define(
             lazyInit: true,
 
             onInit() {
-
                 this._events(Dropdown).on(
                     SET_MOD_HOVERED,
                     this.prototype.onDropdownSetModHoveredLive
