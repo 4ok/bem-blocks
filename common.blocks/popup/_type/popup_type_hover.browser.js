@@ -17,12 +17,12 @@ modules.define(
 
             onPointerOver() {
                 this.setMod('hovered');
-                this.bindTo('pointerleave', this._onPointerLeave);
+                this._domEvents().on('pointerleave', this._onPointerLeave);
             },
 
             _onPointerLeave() {
                 this.delMod('hovered');
-                this.unbindFrom('pointerleave', this._onPointerLeave);
+                this._domEvents().un('pointerleave', this._onPointerLeave);
             },
         }, /** @lends popup */{
             lazyInit: true,
